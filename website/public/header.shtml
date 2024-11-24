@@ -1,0 +1,21 @@
+<header>
+    <section>
+        <a href="" class="logotype">
+            <img src="../public/logo.svg" class="logo">
+            Pan Fryzjer
+        </a>
+    </section>
+    <nav>
+        <a href="" class="">strona główna</a>
+        <a href="" class="">umów wizytę</a>
+        <a href="" class="">umówione wizyty</a>
+        <?php
+            if(isset($_SESSION['login'])){
+                echo '<a href="../public/logout.php">wyloguj</a>';
+            }else{
+                echo '<a href="register.php" class="">zarejestruj się</a>';
+                echo '<a href="login.php" class="">zaloguj się</a>';
+            }
+        ?>
+    </nav>
+</header>

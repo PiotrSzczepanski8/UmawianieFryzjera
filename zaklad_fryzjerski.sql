@@ -1,7 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
---
 -- Host: 127.0.0.1
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
@@ -58,6 +57,7 @@ CREATE TABLE `uzytkownik` (
   `PESEL` int(11) NOT NULL,
   `imie` varchar(30) NOT NULL,
   `nazwisko` varchar(30) NOT NULL,
+  `telefon` varchar(15) NOT NULL,
   `login` varchar(30) NOT NULL,
   `haslo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
