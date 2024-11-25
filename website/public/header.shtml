@@ -1,16 +1,21 @@
 <header>
     <section>
-        <a href="" class="logotype">
+        <a href="index.php" class="logotype">
             <img src="../public/logo.svg" class="logo">
             Pan Fryzjer
         </a>
     </section>
     <nav>
-        <a href="" class="">strona główna</a>
+        <a href="index.php" class="">strona główna</a>
         <a href="" class="">umów wizytę</a>
         <a href="" class="">umówione wizyty</a>
         <?php
+            session_start();
+            $login = false;
             if(isset($_SESSION['login'])){
+                $login = $_SESSION['login'];
+            }
+            if($login){
                 echo '<a href="../public/logout.php">wyloguj</a>';
             }else{
                 echo '<a href="register.php" class="">zarejestruj się</a>';
