@@ -10,7 +10,9 @@
         <a href="" class="">umów wizytę</a>
         <a href="" class="">umówione wizyty</a>
         <?php
-            session_start();
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
             $login = false;
             if(isset($_SESSION['login'])){
                 $login = $_SESSION['login'];
