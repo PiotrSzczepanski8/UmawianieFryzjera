@@ -8,7 +8,7 @@
     <nav>
         <a href="index.php" class="">strona główna</a>
         <a href="schedule.php" class="">umów wizytę</a>
-        <a href="" class="">umówione wizyty</a>
+        <a href="scheduled.php" class="">umówione wizyty</a>
         <?php
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();

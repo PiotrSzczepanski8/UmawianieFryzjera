@@ -102,6 +102,9 @@
             
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 $user_id = $rows[0]['PESEL'];
+            }else{
+                header("Location: index.php");
+                exit();
             }
 
             $koniec = new DateTime('16:30:00');

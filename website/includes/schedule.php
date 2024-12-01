@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data->modify("+1 day");
         $data = $data->format("Y-m-d");
         header("Location: ../client/schedule.php?action=prev&data=$data");
+        exit();
     } else {
         echo "<p>Błąd: " . mysqli_error($conn) . "</p>";
     }
