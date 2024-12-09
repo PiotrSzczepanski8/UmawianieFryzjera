@@ -29,7 +29,7 @@
                 exit();
             }
 
-            $query = "SELECT fryzjer.imie, fryzjer.nazwisko, rezerwacja.data FROM rezerwacja INNER JOIN fryzjer on fryzjer.id_fryzjer = rezerwacja.id_fryzjer WHERE id_uzytkownik = $user_id;";
+            $query = "SELECT fryzjer.imie, fryzjer.nazwisko, rezerwacja.data, rezerwacja.godzina FROM rezerwacja INNER JOIN fryzjer ON fryzjer.id_fryzjer = rezerwacja.id_fryzjer WHERE rezerwacja.id_uzytkownik = $user_id AND (rezerwacja.data > CURDATE() OR (rezerwacja.data = CURDATE() AND rezerwacja.godzina > CURTIME()));";
 
             $result = mysqli_query($conn, $query);
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -43,6 +43,10 @@
                 echo "</section>";
                 echo "data: ";
                 echo $row['data']." ";
+                echo "<section>";
+                echo "godzina: ";
+                echo $row['godzina']." ";
+                echo "</section>";
                 echo "</section>";
             }
         ?>
