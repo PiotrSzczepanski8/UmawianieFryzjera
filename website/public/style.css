@@ -147,6 +147,11 @@ input{
     width: fit-content;
     background: linear-gradient(0deg, #ad57d5 0%, #ad57d5 35%, rgba(0,212,255,0) 35%);
 }
+.cool_underline{
+    width: fit-content;
+    background: linear-gradient(0deg, #fb0 0%, #fb0 35%, rgba(0,212,255,0) 35%);
+}
+
 .schedule_main{
     flex-direction: column;
     align-items: center;
@@ -184,4 +189,23 @@ form{
     padding: 0;
     border-radius: 0;
     background-color: #00000000;
+}
+
+.table_button{
+    font-size: 0.8em;
+    padding: 0.3em;
+}
+
+table{
+    /* width: 80%; */
+    border-collapse: collapse;
+}
+td, th{
+    width: fit-content;
+    border: 1px solid #000;
+    font-size: 0.9em;
+    text-align: center;
+}
+.table_none_border{
+    border: none;
 }
