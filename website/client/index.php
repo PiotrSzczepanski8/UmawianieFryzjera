@@ -13,7 +13,7 @@
             include "../public/header.shtml";
         ?>
         <main>
-            nic tutaj nie ma...
+            <h1></h1>
         </main>
     </div>
 </body>

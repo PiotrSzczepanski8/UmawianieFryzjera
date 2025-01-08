@@ -20,11 +20,12 @@
             exit();
         }
 
-        $query = "SELECT * FROM uzytkownik WHERE login='$login' and haslo='$password'";
+        $query = "SELECT * FROM uzytkownik WHERE login='$login'";
         
         $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        if(mysqli_num_rows($result) > 0){
+        if(mysqli_num_rows($result) > 0 && password_verify($password, $row[0]['haslo'])){
             $logged = true;
             $_SESSION['logged'] = $logged;
             $_SESSION['login'] = $login;

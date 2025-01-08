@@ -18,7 +18,6 @@
             </section>
             <nav>
                 <?php
-
                     require_once "../config/connection.php";
 
                     session_start();

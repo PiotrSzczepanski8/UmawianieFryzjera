@@ -13,6 +13,7 @@
         $pesel = $_POST['pesel'];
         $login = $_POST['login'];
         $password = $_POST['password'];
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "SELECT * FROM uzytkownik WHERE login='$login' or telefon='$phone' or pesel='$pesel';";
 
