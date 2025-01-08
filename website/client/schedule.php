@@ -35,6 +35,10 @@
                 $data = new DateTime($_GET['data']);
             }
 
+            if (isset($_GET['message'])){
+                $message = $_GET['message'];
+            }
+
             function getNextWeekday($date, $direction = 'next'){
                 $dayOfWeek = $date->format('w');
 
@@ -82,6 +86,10 @@
                 }
             }
 
+            if(isset($message)){
+                echo "<p>$message</p>";
+            }
+
             echo '<section class="calendar_nav">';
             
             echo '<a href="?action=prev&data=' . $data->format("Y-m-d") . '" class="change_date_button">&#x25C0;</a>';
@@ -101,7 +109,7 @@
                 $result = mysqli_query($conn, $query);
             
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                $user_id = $rows[0]['PESEL'];
+                $user_id = $rows[0]['id_uzytkownik'];
             }else{
                 header("Location: index.php");
                 exit();
@@ -115,15 +123,14 @@
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             
             foreach ($rows as $row) {
-                $godzina = new DateTime('09:00:00');
+                $godzina = new DateTime('08:15:00');
                 echo '<section>';
                 echo "<h3>".$row['imie']." ".$row['nazwisko']."</h3>";
-                while ($godzina <= $koniec){
-
+                while ($godzina < $koniec){
                     echo '<section>';
                     
-                    echo '<p>'.$godzina->format('H:i').'</p>';
                     $godzina->modify('+45 minutes');
+                    echo '<p>'.$godzina->format('H:i').'</p>';
 
                     $godzinaFormatted = $godzina->format('H:i');
                     $dataFormatted = $data->format("Y-m-d");

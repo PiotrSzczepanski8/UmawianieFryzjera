@@ -23,7 +23,7 @@
                 $result = mysqli_query($conn, $query);
             
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                $user_id = $rows[0]['PESEL'];
+                $user_id = $rows[0]['id_uzytkownik'];
             }else{
                 header("Location: index.php");
                 exit();
@@ -34,20 +34,24 @@
             $result = mysqli_query($conn, $query);
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-            foreach($rows as $row){
-                echo "<section>";
-                echo "<section>";
-                echo "Fryzjer: ";
-                echo $row['imie']." ";
-                echo $row['nazwisko']." ";
-                echo "</section>";
-                echo "data: ";
-                echo $row['data']." ";
-                echo "<section>";
-                echo "godzina: ";
-                echo $row['godzina']." ";
-                echo "</section>";
-                echo "</section>";
+            if(mysqli_num_rows($result) > 0){
+                foreach($rows as $row){
+                    echo "<section>";
+                    echo "<section>";
+                    echo "Fryzjer: ";
+                    echo $row['imie']." ";
+                    echo $row['nazwisko']." ";
+                    echo "</section>";
+                    echo "data: ";
+                    echo $row['data']." ";
+                    echo "<section>";
+                    echo "godzina: ";
+                    echo $row['godzina']." ";
+                    echo "</section>";
+                    echo "</section>";
+                }
+            }else{
+                echo 'Nie masz zaplanowanych żadnych wizyt.';
             }
         ?>
         </main>
