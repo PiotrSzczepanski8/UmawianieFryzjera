@@ -6,9 +6,7 @@
         </a>
     </section>
     <nav>
-        <a href="index.php" class="">strona główna</a>
-        <a href="schedule.php" class="">umów wizytę</a>
-        <a href="scheduled.php" class="">umówione wizyty</a>
+        <a href="index.php">strona główna</a>
         <?php
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
@@ -18,10 +16,12 @@
                 $login = $_SESSION['login'];
             }
             if($login){
+                echo '<a href="schedule.php">umów wizytę</a>';
+                echo '<a href="scheduled.php">umówione wizyty</a>';
                 echo '<a href="../public/logout.php">wyloguj</a>';
             }else{
-                echo '<a href="register.php" class="">zarejestruj się</a>';
-                echo '<a href="login.php" class="">zaloguj się</a>';
+                echo '<a href="register.php">zarejestruj się</a>';
+                echo '<a href="login.php">zaloguj się</a>';
             }
         ?>
     </nav>
