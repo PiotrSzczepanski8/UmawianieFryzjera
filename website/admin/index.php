@@ -34,6 +34,11 @@
             <section class="home_login" id="home">
                 <?php
                     if($login == 'admin'){
+                        $query = "DELETE FROM rezerwacja WHERE data < CURDATE()";
+                        if(!mysqli_query($conn, $query)){
+                            echo 'Wyświetlane dane mogą być przestarzałe.';
+                        }
+
                         $query = "SHOW TABLES FROM zaklad_fryzjerski;";
 
                         $result = mysqli_query($conn, $query);
@@ -82,9 +87,6 @@
                             exit();
                         }
                 ?>
-            </section>
-            <section class="tables">
-                
             </section>
         </main>
     </div>
