@@ -159,6 +159,9 @@
             ?>
             
         </main>
+        <?php
+            include "../public/footer.shtml";
+        ?>
     </div>
 </body>
 </html>

@@ -9,9 +9,6 @@
 </head>
 <body>
     <div class="container">
-        <?php
-            include "header.shtml";
-        ?>
         <main>
             <section class="login_section">
                 <?php

@@ -49,6 +49,26 @@ main{
     width: 100%;
     height: 100%;
 }
+.home_page_main h1{
+    display: inline;
+    margin-bottom: 0;
+}
+
+.home_page_main h4{
+    margin-top: .6em;
+}
+.home_page_main{
+    padding-top: 3%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: none;
+}
+.home_page_main h1 p{
+    color: #000;
+    display: inline;
+    margin: 0;
+    background: linear-gradient(0deg, #ad57d5 0%, #ad57d5 35%, #00000000 35%);
+}
 a {
 	text-decoration: none;
 	color: #ffffff;
@@ -208,4 +228,26 @@ td, th{
 }
 .table_none_border{
     border: none;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    font-family: MontserratBold;
+    background-color: black;
+    width: 100%;
+    padding: 1em;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+footer::selection{
+    color: #000;
+    background-color: #ad57d5;
+}
+
+.book_link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
