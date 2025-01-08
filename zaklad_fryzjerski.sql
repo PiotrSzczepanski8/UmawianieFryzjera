@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 09 Gru 2024, 10:06
--- Wersja serwera: 10.4.20-MariaDB
--- Wersja PHP: 7.3.29
+-- Czas generowania: 08 Sty 2025, 09:34
+-- Wersja serwera: 10.4.24-MariaDB
+-- Wersja PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `zaklad_fryzjerski`
 --
-CREATE DATABASE IF NOT EXISTS `zaklad_fryzjerski` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `zaklad_fryzjerski`;
 
 -- --------------------------------------------------------
 
@@ -106,7 +104,8 @@ INSERT INTO `rezerwacja` (`id_rezerwacja`, `data`, `godzina`, `id_uzytkownik`, `
 (47, '2024-12-02', '12:00:00', 2147483647, 3),
 (48, '2024-12-02', '11:15:00', 2147483647, 3),
 (49, '2024-12-02', '09:45:00', 2147483647, 3),
-(90, '2024-12-04', '12:00:00', 2147483647, 2);
+(90, '2024-12-04', '12:00:00', 2147483647, 2),
+(91, '2025-01-08', '10:30:00', 2147483647, 2);
 
 -- --------------------------------------------------------
 
@@ -115,21 +114,23 @@ INSERT INTO `rezerwacja` (`id_rezerwacja`, `data`, `godzina`, `id_uzytkownik`, `
 --
 
 CREATE TABLE `uzytkownik` (
-  `PESEL` int(11) NOT NULL,
+  `PESEL` varchar(11) DEFAULT NULL,
   `imie` varchar(30) NOT NULL,
   `nazwisko` varchar(30) NOT NULL,
   `login` varchar(30) NOT NULL,
   `haslo` varchar(100) NOT NULL,
   `telefon` varchar(15) NOT NULL,
   `id_uzytkownik` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ;
 
 --
 -- Zrzut danych tabeli `uzytkownik`
 --
 
 INSERT INTO `uzytkownik` (`PESEL`, `imie`, `nazwisko`, `login`, `haslo`, `telefon`, `id_uzytkownik`) VALUES
-(2147483647, 'Karolina', 'Fryderyk', 'marekrurka', 'kurka', '+90 000 000 000', 1);
+('09876543123', 'Karolina', 'Fryderyk', 'marekrurka', 'kurka', '+90 000 000 000', 1),
+('02087843232', 'Marek', 'Kot', 'marekkot', 'potezne_haslo', '+48 678 678 687', 2),
+('89898989123', 'Marcin', 'Lolek', 'marcin_lolek', 'lolek123', '+48 456 456 456', 3);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -169,13 +170,13 @@ ALTER TABLE `fryzjer`
 -- AUTO_INCREMENT dla tabeli `rezerwacja`
 --
 ALTER TABLE `rezerwacja`
-  MODIFY `id_rezerwacja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id_rezerwacja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownik`
 --
 ALTER TABLE `uzytkownik`
-  MODIFY `id_uzytkownik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_uzytkownik` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ograniczenia dla zrzutów tabel

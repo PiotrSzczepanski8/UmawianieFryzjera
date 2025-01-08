@@ -37,7 +37,7 @@
                     </section>
                     <section>
                         <label for="pesel">PESEL:</label>
-                        <input type="number" name="pesel" pattern="[0-9]{11}" placeholder="00000000000" required>
+                        <input type="text" name="pesel" pattern="[0-9]{11}" placeholder="00000000000" required>
                     </section>
                     <section>
                         <label for="login">Login:</label>
