@@ -57,6 +57,9 @@
                             echo "<thead><tr>";
                             if(mysqli_num_rows($result) > 0){
                                 foreach(array_keys($rows[0]) as $header){
+                                    if ($header === 'haslo') {
+                                        continue;
+                                    }
                                     echo "<th>$header</th>";
                                 }
                             }else{
@@ -66,7 +69,10 @@
                             echo "<tbody>";
                             foreach ($rows as $row => $val){
                                 echo '<tr>';
-                                foreach ($val as $key => $value) {
+                                foreach ($val as $key => $value){
+                                    if ($key === 'haslo'){
+                                        continue;
+                                    }
                                     echo "<td>".$value."</td>";
                                 }
                                 $recordId = $val["id_$table"];
